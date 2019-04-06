@@ -1,0 +1,20 @@
+version: '3'
+services:
+#  demoapp:
+#    image: demoapp:latest
+#    volumes:
+#    - ./logs:/logs
+  demoapp1:
+    image: demoapp:${APP_VERSION:-latest}
+    volumes:
+    - ./logs:/logs
+  demoapp2:
+    image: demoapp:${APP_VERSION:-latest}
+    volumes:
+    - ./logs:/logs
+  nginx:
+    image: nginx-demoapp:latest
+    ports:
+    - 80:80
+    volumes:
+    - ./logs/nginx/:/logs
