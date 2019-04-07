@@ -24,7 +24,7 @@ public class HealthController {
         health.setMessage("success");
         health.setTime(new Date().getTime());
 
-        logger.info("health called.");
+        logger.info("health called");
 
         return health;
     }
