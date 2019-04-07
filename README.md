@@ -1,20 +1,17 @@
 # Devops demo app
 
-## Guide
-
 ### Clone project
 ```bash
 git clone https://github.com/hangsub/devops-example.git
 ```
 
-### Settings
-- build images: `demoapp`, `nginx-demoapp`
-
+### 초기 설정
 **Build Images**
 ```bash
 ./tools/devops.sh build
 ```
-- you can see the images
+- 위 명령으로 `demoapp`, `nginx-demoapp` 두개의 이미지가 빌드됩니다.
+- 아래의 목록을 확인할 수 있습니다.
 ```bash
 $ docker images
 demoapp             0.0.1               f8ead8823a3c        7 seconds ago       676MB
@@ -27,7 +24,7 @@ nginx-demoapp       latest              9b4bcacad391        23 seconds ago      
 ```bash
 ./tools/devops.sh start
 ```
-- you can connect to the following links
+- 아래 링크를 접속하여 어플리케이션 서버가 잘 동작하는지 확인할 수 있습니다.
   - http://localhost
   - http://localhost/health
 
@@ -41,13 +38,14 @@ nginx-demoapp       latest              9b4bcacad391        23 seconds ago      
 ./tools/devops.sh restart
 ```
 
-### Deploy Service
+### Deploy demoapp
 ```bash
-// TODO
+./tools/devops.sh deoloy
 ```
+> 이미지가 동일할 경우는 배포되지 않습니다.
 
-### Show logs
-- stdout,stderr in all containers
+### 로그 확인
+- stdout,stderr 가 docker-compose에 의해 저장되어 있므로 아래 명령으로 조회 가능합니다.
 ```bash
 docker-compose logs -f --tail=100
 ```

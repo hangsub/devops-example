@@ -11,7 +11,9 @@ case "$1" in
         docker-compose restart
         ;;
     deploy)
-        # TODO
+        docker-compose up --no-deps -d demoapp1
+        sleep 10
+        docker-compose up --no-deps -d demoapp2
         ;;
     build)
         ./nginx/docker-build.sh
